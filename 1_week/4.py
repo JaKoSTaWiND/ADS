@@ -1,19 +1,16 @@
-value = int(input("Enter value: "))
-result = int(input("Enter answer: "))
+target_number = int(input("Enter number to check: "))
+base = int(input("Enter potential base: "))
 
-def calculate_power(value, result) -> int:
-
-    power = 0
-
-    while value ** power < result:
-        power += 1
+def check_if_is_power(target, b):
+    if target == 1:
+        return "YES"
+    if target == b:
+        return "YES"
+    if b <= 1 or target % b != 0:
+        return "NO"
     
-    if value ** power == result:
-        print("YES")
-    else:
-        print("NO")
-
-    return power
+    return check_if_is_power(target // b, b)
 
 if __name__ == "__main__":
-    calculate_power(value=value, result=result)
+    result = check_if_is_power(target=target_number, b=base)
+    print(f"Result: {result}")

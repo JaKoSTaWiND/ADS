@@ -1,17 +1,11 @@
-data = str(input("Enter non-negative n: "))
+target_number = int(input("Enter number: "))
 
-def calculate_sum_of_digits(data) -> int:
-
-    result = 0
-
-    for char in data:
-        int_char = int(char)
-
-        result += int_char
-
-    print(f"Result: {result}")
-
-    return result
+def calculate_digits_sum(number):
+    if number < 10:
+        return number
+    else:
+        return (number % 10) + calculate_digits_sum(number // 10)
 
 if __name__ == "__main__":
-    calculate_sum_of_digits(data=data) 
+    result = calculate_digits_sum(number=target_number)
+    print(f"Result: {result}")

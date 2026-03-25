@@ -1,13 +1,13 @@
-value = int(input("Enter integer value: "))
+decimal_number = int(input("Enter decimal number: "))
 
-def calculate_to_binary(value) -> int:
-    if value == 0:
-        print(value)
-        return 0
-    elif value > 1:
-        calculate_to_binary(value=value // 2)
-
-    print(value % 2, end="")
+def convert_to_binary(number):
+    
+    return convert_to_binary(number // 2) + str(number % 2)
 
 if __name__ == "__main__":
-    calculate_to_binary(value=value)
+    if decimal_number == 0:
+        result = "0"
+    else:
+        result = convert_to_binary(number=decimal_number)
+        
+    print(f"Result: {result}")
